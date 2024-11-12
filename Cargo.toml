@@ -1,0 +1,15 @@
+[package]
+name = "ed25519-precompile"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ed25519 = "2.2.3"
+ed25519-dalek = { version = "2.1.1", features = ["digest"] }
+revm = { version = "18.0.0", features = ["std"], default-features = false }
+sha2 = "0.10"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
